@@ -10,18 +10,24 @@ let idImagemAtiva = 0;
 const proximaImagem = () => {
     idImagemAtiva++
     if(idImagemAtiva >= todasImagens.length) idImagemAtiva = 0
+    // console.log(todasImagens[idImagemAtiva])
+    textoAlternativo.innerHTML = todasImagens[idImagemAtiva].alt
     selecionarImagem()
 }
 const voltarImagem = () => {
     idImagemAtiva--
     if(idImagemAtiva < 0) idImagemAtiva = todasImagens.length - 1
+    textoAlternativo.innerHTML = todasImagens[idImagemAtiva].alt
     selecionarImagem()
 }
 const selecionarImagem = function() {
+    
     imagemPrincipal.src = todasImagens[idImagemAtiva].src
+    
     todasImagens.forEach((imagem)=>{
         imagem.classList = ""
-    textoAlternativo.innerHTML = imgAlt
+        
+ 
         
     })
     todasImagens[idImagemAtiva].classList.add("")
@@ -34,9 +40,12 @@ todasImagens.forEach((imagem, numeroImagem)=>{
 
         imagemPrincipal.src = imagem.src
         imagem.classList = "selecionada"
+        
+        
 
         textoAlternativo.innerHTML = imagem.alt
         
 
     })
 })
+
